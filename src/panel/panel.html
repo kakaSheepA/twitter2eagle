@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <main class="panel-shell">
+    <header class="brand-row">
+      <div><p class="eyebrow">X PROFILE MEDIA</p><h1>X 媒体下载器</h1></div>
+      <span id="task-state" class="state-badge" data-tone="idle">待开始</span>
+    </header>
+    <section class="task-card" aria-label="任务状态">
+      <output id="status">正在读取任务状态…</output>
+      <div class="stats-grid">
+        <div><strong id="stat-total">0</strong><span>已发现</span></div>
+        <div><strong id="stat-pending">0</strong><span>待下载</span></div>
+        <div><strong id="stat-completed">0</strong><span>已完成</span></div>
+        <div><strong id="stat-unavailable">0</strong><span>不可用</span></div>
+      </div>
+    </section>
+    <details class="settings-card" aria-label="采集设置">
+      <summary class="section-heading"><h2>采集设置</h2><span>可随时调整</span></summary>
+      <div class="check-grid">
+        <label><input id="reposts" type="checkbox"> 包含转推</label>
+        <label><input id="replies" type="checkbox"> 包含回复</label>
+      </div>
+      <fieldset class="media-choice">
+        <legend>采集媒体</legend>
+        <label><input type="radio" name="media-type" value="all" checked> 全部</label>
+        <label><input type="radio" name="media-type" value="image"> 仅图片</label>
+        <label><input type="radio" name="media-type" value="video"> 仅视频</label>
+      </fieldset>
+      <fieldset class="scroll-choice">
+        <legend>滚动方式</legend>
+        <label><input type="radio" name="scroll-mode" value="manual" checked> 手动</label>
+        <label><input type="radio" name="scroll-mode" value="auto"> 自动</label>
+      </fieldset>
+    </details>
+    <section class="action-stack" aria-label="扫描操作">
+      <button id="primary" class="primary-action" type="button">开始扫描</button>
+      <button id="auto-scroll" class="secondary-action" type="button" hidden></button>
+    </section>
+    <section class="eagle-card" aria-label="保存到 Eagle">
+      <div class="download-heading"><div><p class="eyebrow">EAGLE</p><h2>保存到 Eagle</h2></div><button id="eagle-refresh" class="batch-action" type="button">刷新</button></div>
+      <p id="eagle-status" class="eagle-status">正在检测 Eagle…</p>
+      <div class="import-report" aria-label="本次导入结果"><strong>本次导入结果</strong><span id="import-report">尚未提交 Eagle。</span></div>
+      <div class="eagle-actions"><span id="eagle-target" class="eagle-target">将自动创建推主文件夹</span><button id="eagle-batch" class="primary-action" type="button">保存全部到 Eagle (0)</button></div>
+    </section>
+    <details id="downloads" class="download-card" aria-label="下载媒体">
+      <summary class="download-heading"><div><p class="eyebrow">DOWNLOADS</p><h2>媒体列表</h2></div></summary>
+      <div id="media-details">
+        <button id="batch-download" class="batch-action" type="button">批量下载</button>
+        <div class="tabs" role="tablist">
+          <button id="tab-downloadable" class="active" type="button" role="tab">可下载 (0)</button>
+          <button id="tab-unavailable" type="button" role="tab">不可下载 (0)</button>
+        </div>
+        <div class="media-filter" role="group" aria-label="筛选媒体类型">
+          <button class="active" type="button" data-media-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-media-filter="image" aria-pressed="false">图片</button>
+          <button type="button" data-media-filter="video" aria-pressed="false">视频</button>
+        </div>
+        <div id="media-list" aria-live="polite"></div>
+        <div class="media-pagination" aria-label="媒体列表分页"><button id="media-prev" type="button">上一页</button><span id="media-page">暂无媒体项</span><button id="media-next" type="button">下一页</button></div>
+        <button id="retry" class="retry-action" type="button" hidden>重试失败项</button>
+      </div>
+    </details>
+    <details id="diagnostics" class="diagnostics-card">
+      <summary>诊断日志</summary>
+      <pre id="logs">等待采集日志…</pre>
+    </details>
+  </main>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

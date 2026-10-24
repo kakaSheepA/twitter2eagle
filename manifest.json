@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "X 用户媒体下载器",
+  "version": "0.1.0",
+  "description": "扫描 X 用户主页图片与视频，选择文件夹后批量下载。",
+  "permissions": ["downloads", "storage", "tabs", "sidePanel", "scripting", "webRequest", "nativeMessaging", "alarms"],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://*.twimg.com/*",
+    "https://cdn.syndication.twimg.com/*",
+    "https://web.telegram.org/*",
+    "http://localhost:41595/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "action": { "default_title": "X 用户媒体下载器" },
+  "side_panel": { "default_path": "src/panel/panel.html" },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["src/content/page-bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["src/content/content-script.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://web.telegram.org/k/*"],
+      "js": ["src/content/telegram-content-script.js"],
+      "css": ["src/content/telegram-content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+.telegram-eagle-host { position: relative; }
+.telegram-eagle-control { align-items: center; background: #fff; border: 0; border-radius: 1rem; box-shadow: 0 1px 5px #0006; color: #222; cursor: pointer; display: flex; font: 700 12px/1 sans-serif; height: 2rem; justify-content: center; padding: 0 .7rem; position: absolute; right: 6px; top: 6px; white-space: nowrap; z-index: 5; }
+.telegram-eagle-control:disabled { cursor: default; opacity: .75; }
+.telegram-eagle-viewer-control { position: fixed; right: 5.5rem; top: 1.25rem; z-index: 2147483647; }

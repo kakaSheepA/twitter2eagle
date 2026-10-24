@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+  <body>
+    <main>
+      <h1>X 媒体下载器</h1>
+      <label><input id="reposts" type="checkbox"> 包含转推</label>
+      <label><input id="replies" type="checkbox"> 包含回复</label>
+      <button id="start" type="button">开始采集并刷新页面</button>
+      <button id="stop" type="button">停止采集</button>
+      <button id="download" type="button">开始下载</button>
+      <button id="retry" type="button">重试失败项</button>
+      <output id="status">正在准备…</output>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

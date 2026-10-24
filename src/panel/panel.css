@@ -1,0 +1,100 @@
+:root { color: #172033; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; background: #f5f7fb; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #f5f7fb; }
+button, input { font: inherit; }
+.panel-shell { display: grid; gap: 12px; max-width: 720px; margin: 0 auto; padding: 16px; }
+.brand-row, .download-heading, .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.eyebrow { color: #63718a; font-size: 10px; font-weight: 750; letter-spacing: .09em; margin: 0 0 3px; }
+h1, h2, p { margin: 0; }
+h1 { font-size: 20px; letter-spacing: -.04em; }
+h2 { font-size: 14px; letter-spacing: -.015em; }
+.state-badge { background: #e8edf5; border-radius: 99px; color: #506079; font-size: 12px; font-weight: 700; padding: 6px 9px; white-space: nowrap; }
+.state-badge[data-tone="scanning"] { background: #e1f2ff; color: #076aa9; }
+.state-badge[data-tone="downloading"] { background: #fff1d7; color: #a85c00; }
+.state-badge[data-tone="complete"] { background: #dff7ec; color: #087a49; }
+.task-card, .settings-card, .download-card, .eagle-card, .diagnostics-card { background: #fff; border: 1px solid #e4e9f1; border-radius: 14px; box-shadow: 0 2px 12px rgb(35 48 72 / 4%); }
+.task-card { display: grid; gap: 14px; padding: 14px; }
+output { color: #43536e; font-size: 12px; line-height: 1.45; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #edf0f5; padding-top: 12px; }
+.stats-grid > div { display: grid; gap: 3px; min-width: 0; }
+.stats-grid > div + div { border-left: 1px solid #edf0f5; padding-left: 10px; }
+.stats-grid strong { color: #15223b; font-size: 18px; letter-spacing: -.04em; }
+.stats-grid span { color: #7a879a; font-size: 10px; white-space: nowrap; }
+.settings-card { padding: 0; }
+.settings-card summary { cursor: pointer; list-style: none; padding: 14px; }
+.settings-card summary::-webkit-details-marker { display: none; }
+.settings-card summary::after { color: #63718a; content: '⌄'; font-weight: 700; }
+.settings-card[open] { display: grid; gap: 10px; padding: 14px; }
+.settings-card[open] summary { padding: 0; }
+.settings-card[open] summary::after { transform: rotate(180deg); }
+.section-heading span { color: #8290a4; font-size: 11px; }
+.check-grid { display: flex; gap: 22px; }
+label { color: #43536e; font-size: 13px; }
+input { accent-color: #1677d2; }
+.scroll-choice, .media-choice { align-items: center; display: grid; gap: 7px; border: 0; border-top: 1px solid #edf0f5; margin: 0; padding: 9px 0 0; }
+.scroll-choice { grid-template-columns: auto 1fr 1fr; }
+.media-choice { grid-template-columns: auto 1fr 1fr 1fr; }
+.scroll-choice legend, .media-choice legend { color: #7a879a; font-size: 11px; padding: 0; }
+.scroll-choice label, .media-choice label { background: #f6f8fb; border: 1px solid #e4e9f1; border-radius: 8px; padding: 7px 9px; text-align: center; white-space: nowrap; }
+.action-stack { display: grid; gap: 8px; }
+button { border: 1px solid #d7deea; border-radius: 10px; cursor: pointer; font-size: 13px; font-weight: 700; min-height: 40px; transition: background .15s, border-color .15s, transform .15s; }
+button:active { transform: translateY(1px); }
+button:disabled { cursor: not-allowed; opacity: .55; }
+.primary-action { background: #1677d2; border-color: #1677d2; color: #fff; min-height: 44px; }
+.primary-action:hover:not(:disabled) { background: #0f68bd; }
+.secondary-action, .retry-action { background: #fff; color: #39506f; }
+.download-card { display: grid; gap: 10px; padding: 14px; }
+.download-card summary { cursor: pointer; list-style: none; }
+.download-card summary::-webkit-details-marker { display: none; }
+.download-card summary::after { color: #63718a; content: '⌄'; font-weight: 700; }
+.download-card[open] summary::after { transform: rotate(180deg); }
+.eagle-card { display: grid; gap: 10px; padding: 14px; }
+.eagle-status { color: #63718a; font-size: 12px; }
+.eagle-option { color: #506079; font-size: 12px; }
+.import-report { background: #f6f8fb; border: 1px solid #e4e9f1; border-radius: 9px; color: #506079; display: grid; font-size: 11px; gap: 3px; padding: 8px 10px; }
+.import-report strong { color: #24344e; font-size: 12px; }
+.eagle-actions { align-items: center; display: grid; gap: 8px; grid-template-columns: minmax(0, 1fr) auto; }
+.eagle-target { color: #39506f; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.batch-action { background: #eef6ff; border-color: #bcdcff; color: #0868b9; min-height: 34px; padding: 0 11px; white-space: nowrap; }
+.tabs { background: #f2f5f9; border-radius: 9px; display: flex; gap: 3px; padding: 3px; }
+.tabs button { background: transparent; border: 0; color: #64728a; flex: 1; min-height: 32px; }
+.tabs button.active { background: #fff; box-shadow: 0 1px 3px rgb(35 48 72 / 10%); color: #16243d; }
+.media-filter { align-items: center; display: flex; gap: 5px; padding: 5px 1px 1px; }
+.media-filter::before { color: #708097; content: '筛选'; font-size: 11px; margin-right: 2px; }
+.media-filter button { background: #f5f7fa; border: 1px solid transparent; border-radius: 999px; color: #64728a; font-size: 11px; min-height: 25px; padding: 0 10px; }
+.media-filter button.active { background: #eaf3ff; border-color: #bcdcff; color: #1767ae; font-weight: 700; }
+#media-details { display: grid; gap: 10px; }
+.download-card:not([open]) > #media-details { display: none; }
+#media-list { display: grid; gap: 6px; max-height: 350px; overflow: auto; padding-right: 2px; }
+.media-pagination { align-items: center; display: grid; gap: 8px; grid-template-columns: auto 1fr auto; }
+.media-pagination button { background: #fff; color: #39506f; min-height: 30px; padding: 0 10px; }
+.media-pagination span { color: #708097; font-size: 11px; text-align: center; white-space: nowrap; }
+.media-item { background: #fbfcfe; border: 1px solid #e6ebf3; border-radius: 9px; display: grid; gap: 7px; padding: 9px 10px; }
+.media-head, .media-actions { align-items: center; display: flex; gap: 8px; min-width: 0; }
+.media-head { justify-content: space-between; }
+.media-item strong { color: #1d2c44; font-size: 12px; }
+.media-item span, .media-item small { color: #708097; font-size: 11px; }
+.status-chip { background: #eaf3ff; border-radius: 99px; color: #1767ae !important; font-weight: 700; padding: 3px 7px; white-space: nowrap; }
+.link-action { color: #116dc0; font-size: 11px; text-decoration: none; white-space: nowrap; }
+.media-download { margin-left: auto; }
+.media-item button { background: #fff; color: #1d5f9f; min-height: 27px; padding: 0 10px; }
+.retry-action { border-color: #f0c18c; color: #a85800; }
+.empty { color: #7a879a; font-size: 12px; margin: 10px 0; text-align: center; }
+.diagnostics-card { overflow: hidden; }
+.diagnostics-card summary { color: #63718a; cursor: pointer; font-size: 12px; font-weight: 700; list-style: none; padding: 12px 14px; }
+.diagnostics-card summary::after { content: '⌄'; float: right; }
+.diagnostics-card[open] summary::after { transform: rotate(180deg); }
+#logs { background: #142033; color: #d4ebdf; font: 10px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; margin: 0; max-height: 180px; overflow: auto; padding: 10px 12px; white-space: pre-wrap; }
+@media (min-width: 760px) {
+  .panel-shell { align-content: start; grid-template-areas: "brand brand" "task downloads" "settings downloads" "actions downloads" "eagle downloads" "diagnostics downloads"; grid-template-columns: minmax(300px, .8fr) minmax(460px, 1.55fr); max-width: none; min-height: 100vh; margin: 0; padding: 18px; }
+  .brand-row { grid-area: brand; }
+  .task-card { grid-area: task; }
+  .settings-card { grid-area: settings; }
+  .action-stack { grid-area: actions; }
+  .eagle-card { grid-area: eagle; }
+  .download-card { align-content: start; grid-area: downloads; grid-template-rows: auto minmax(0, 1fr); height: calc(100vh - 76px); overflow: hidden; }
+  #media-details { grid-template-rows: auto auto auto minmax(0, 1fr) auto; min-height: 0; overflow: hidden; }
+  .diagnostics-card { grid-area: diagnostics; }
+  #media-list { max-height: none; min-height: 0; overflow-y: auto; }
+}
+@media (max-width: 360px) { .panel-shell { padding: 12px; } .stats-grid strong { font-size: 16px; } .download-heading { align-items: flex-start; flex-direction: column; } .batch-action { width: 100%; } }
